@@ -58,7 +58,8 @@ export default {
       items: [
           { title: 'Dashboard', icon: 'fas fa-address-card', to: {name:'home'} },
           { title: 'Account', icon: 'fas fa-address-card', to: {name:'ingreso'} },
-          { title: 'Admin', icon: 'fas fa-address-card', to: {name:'admin'} }
+          { title: 'Admin', icon: 'fas fa-address-card', to: {name:'admin'} },
+          { title: 'Chat', icon: 'fas fa-address-card', to: {name:'chat'} }
         ]
     }
   },

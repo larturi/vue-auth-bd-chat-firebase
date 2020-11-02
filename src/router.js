@@ -1,9 +1,9 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import Vue from 'vue';
+import Router from 'vue-router';
 
 import { auth } from "@/firebase";
 
-Vue.use(Router)
+Vue.use(Router);
 
 const router = new Router({
   mode: 'history',
@@ -12,38 +12,42 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: () => import(/* webpackChunkName: "about" */ './views/Home.vue'),
+      component: () => import('./views/Home.vue'),
       meta: {requiresAuth: true}
     },
     {
       path: '/ingreso',
       name: 'ingreso',
-      component: () => import(/* webpackChunkName: "about" */ './views/Ingreso.vue')
+      component: () => import('./views/Ingreso.vue')
     },
     {
       path: '/admin',
       name: 'admin',
-      component: () => import(/* webpackChunkName: "about" */ './views/Admin.vue'),
+      component: () => import('./views/Admin.vue'),
+      meta: {requiresAuth: true}
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component: () => import('./views/Chat.vue'),
       meta: {requiresAuth: true}
     },
   ]
-})
+});
 
 router.beforeEach((to, from, next) => {
 
-  const user = auth.currentUser
+  const user = auth.currentUser;
 
   if (to.matched.some(record => record.meta.requiresAuth)) {
-    // this route requires auth, check if logged in
-    // if not, redirect to login page.
     if (user) {
-      next()
+      next();
     } else {
-      next({name:'ingreso'})
+      next({name:'ingreso'});
     }
   } else {
-    next() // make sure to always call next()!
+    next(); // make sure to always call next()!
   }
-})
+});
 
 export default router;
