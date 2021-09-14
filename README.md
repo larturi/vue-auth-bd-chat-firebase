@@ -1,4 +1,4 @@
-# facebook-y-gmail
+# Vue & Firebase Chat 
 
 ## Project setup
 ```
