@@ -1,4 +1,4 @@
-# Vue & Firebase Chat 
+# Vue & Firebase Auth 
 
 ## Project setup
 ```
